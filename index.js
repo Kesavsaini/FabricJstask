@@ -15,9 +15,9 @@ inpt.addEventListener('change',(e)=>{
 
 reader.addEventListener('load',()=>{
     fabric.Image.fromURL(reader.result,(img)=>{
-        img.scaleToWidth(400);
-        img.scaleToHeight(400);
+        img.scaleToHeight(500);
         canvas.add(img.set({
+            
         }));
      
         canvas.requestRenderAll();
@@ -33,19 +33,19 @@ canvas.on('mouse:wheel',(opt)=>{
     opt.e.preventDefault();
     opt.e.stopPropagation();
     const vpt =canvas.viewportTransform;
-if (zoom < 400 / 1000) {
-  vpt[4] = 200 - 1000 * zoom / 2;
-  vpt[5] = 200 - 1000 * zoom / 2;
+if (zoom < 800 / 2000) {
+  vpt[4] = 400 - 2000 * zoom / 2;
+  vpt[5] = 400 - 2000 * zoom / 2;
 } else {
   if(vpt[4] >= 0) {
     vpt[4] = 0;
-  } else if (vpt[4] < canvas.getWidth() - 1000 * zoom) {
-    vpt[4] = canvas.getWidth() - 1000 * zoom;
+  } else if (vpt[4] < canvas.getWidth() - 2000 * zoom) {
+    vpt[4] = canvas.getWidth() - 2000 * zoom;
   }
   if (vpt[5] >= 0) {
     vpt[5] = 0;
-  } else if (vpt[5] < canvas.getHeight() - 1000 * zoom) {
-    vpt[5] = canvas.getHeight() - 1000 * zoom;
+  } else if (vpt[5] < canvas.getHeight() - 2000 * zoom) {
+    vpt[5] = canvas.getHeight() - 2000 * zoom;
   }
 }
 
